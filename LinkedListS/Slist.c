@@ -1,6 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+//Debugging Macro
+#define debug() printf("Line number is %d\n",__LINE__);
+
 //Linked List ADT
 #include"Slist.h"
 

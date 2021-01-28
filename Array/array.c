@@ -1,6 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+//Debugging Macro
+#define debug() printf("Line number is %d\n",__LINE__);
+
+// Array ADT
 #include"array.h"
 
 // Initialising the array with total size 
