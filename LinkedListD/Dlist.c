@@ -24,6 +24,7 @@ void append(dlist *L1,infi data){
     }
     else{
         printf("MemoryError: Cannot Allocate Memory\n");
+        return;
     }
     //Handling empty list
     if(!*L1){

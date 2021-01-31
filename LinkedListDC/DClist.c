@@ -24,7 +24,7 @@ void append(dclist* L1,infi data){
         newnode->data = data;
     }
     else{
-        fprintf(stderr,"MemoryError: Memory Full\n");
+        printf("MemoryError: Cannot Allocate Memory\n");
         return;
     }
     // Handling Empty List
@@ -33,7 +33,6 @@ void append(dclist* L1,infi data){
         newnode->prev = newnode;
         newnode->next = newnode;
         return;
-
     }
     // Linking the newnode 
     (*L1)->prev->next = newnode;
@@ -53,7 +52,7 @@ void prepend(dclist *L1,infi data){
         newnode->data = data;
     }
     else{
-        fprintf(stderr,"MemoryError: Memory Full\n");
+        printf("MemoryError: Cannot Allocate Memory\n");
         return;
     }
     // Handling empty list
@@ -114,7 +113,7 @@ void delete(dclist *L1,infi data){
         return;
     }
     else{
-        fprintf(stderr,"Not Found");
+        printf("Not Found\n");
     }
     return;
 }
