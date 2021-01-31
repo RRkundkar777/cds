@@ -22,6 +22,10 @@ void append(clist *L1,infi data){
         //Initialising the newnode with data
         newnode->data = data;
     }
+    else
+    {
+        printf("MemoryError: Cannot Allocate Memory\n");
+    }
     //Handling Empty List
     if(!(*L1)){
         *L1 = newnode;
@@ -46,6 +50,10 @@ void prepend(clist *L1,infi data){
     //If malloc succeeds
     if(newnode){
         newnode->data = data;
+    }
+    else
+    {
+        printf("MemoryError: Cannot Allocate Memory\n");
     }
     //Handling empty list
     if(!(*L1)){
@@ -92,6 +100,7 @@ void delete(clist *L1,infi data){
             follower = leader;
             leader = leader->next;
     }
+    // Handling condition when first node is the node to be deleted
     if(leader == *L1){
         follower = *L1;
         while(follower->next != *L1){
@@ -102,6 +111,7 @@ void delete(clist *L1,infi data){
         free(leader);
         return;
     }
+    // Normal Deletion 
     else if(leader->data == data){
         follower->next = leader->next;
         free(leader);
