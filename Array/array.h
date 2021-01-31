@@ -17,4 +17,5 @@ typedef struct array{
 void init(array *A1,int tsize); //Initialises the array with total size
 void append(array *A1, infi data); //Inserts an element at end of array
 void display(array A1); //Displays the entire array
-void insert(array *A1,INT position,infi data); //Inserts an element at a specified index
+void replace(array *A1,INT position,infi data); //Inserts an element at a specified index by replacing
+void insert(array* A1,INT position,infi data);//Inserts an element at an index by shift-right method
