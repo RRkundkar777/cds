@@ -50,21 +50,21 @@ void prepend(slist * L1,infi data){
         newnode->data = data;
         //Linking the newnode with list
         newnode->next = *L1;
+        // Making the newnode as head
+        *L1 = newnode;
     }
-    *L1 = newnode;
-
     return;
 }
 
 //Displays the entire list while traversing it
 void display(slist L1){
-    //Travelling pointer
+    // Travelling pointer
     node* traveller = L1;
     printf("[");
     if(traveller){
-        //Traversing the linked slist
+        // Traversing the linked slist
         while(traveller){
-            //Change the format specifier when you change the typedef
+            // Change the format specifier for multiple data types
             printf("%d,",traveller->data);
             traveller = traveller->next;
         }
