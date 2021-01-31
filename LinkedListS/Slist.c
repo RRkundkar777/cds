@@ -52,7 +52,9 @@ void prepend(slist * L1,infi data){
         newnode->next = *L1;
         // Making the newnode as head
         *L1 = newnode;
+        return;
     }
+    printf("MemoryError: Failed to allocate memory\n");
     return;
 }
 
@@ -87,6 +89,12 @@ void delete(slist *L1,infi data){
     if(leader == (*L1)){
         (*L1) = (*L1)->next;
         free(leader);
+        return;
+    }
+    // Handling the condtion when data does not matches the node
+    if(leader->next == NULL && leader->data != data)
+    {
+        printf("Not Found\n");
         return;
     }
     //If node to be deleted is other than first node
