@@ -19,7 +19,7 @@ void append(slist *L1,infi data){
     //Handling malloc failure
     if(!newnode){
         printf("MemoryError: Failed to allocate memory\n");
-        // return;
+        return;
     }
     //Initialising the newnode with data and next pointer
     newnode->data = data;
