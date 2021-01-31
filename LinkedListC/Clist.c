@@ -25,6 +25,7 @@ void append(clist *L1,infi data){
     else
     {
         printf("MemoryError: Cannot Allocate Memory\n");
+        return;
     }
     //Handling Empty List
     if(!(*L1)){
@@ -54,6 +55,7 @@ void prepend(clist *L1,infi data){
     else
     {
         printf("MemoryError: Cannot Allocate Memory\n");
+        return;
     }
     //Handling empty list
     if(!(*L1)){
