@@ -14,5 +14,7 @@ int main(int argc, char const *argv[])
     printf("%d\n",stackTop(S1));
     pop(&S1);
     printf("%d\n",stackTop(S1));
+    pop(&S1);
+    printf("%d\n",stackTop(S1));
     return 0;
 }
