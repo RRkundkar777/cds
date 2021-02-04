@@ -1,12 +1,12 @@
-//Binary Search Tree ADT for multiple data types
+// Binary Search Tree ADT for multiple data types
 
-//Change the typedef for accomodating multiple data types
+// Change the typedef for accomodating multiple data types
 typedef int infi;
 
-//for greater sizes
+// for greater sizes
 typedef long long INT;
 
-//Node pointer as tree
+// Node pointer as tree
 typedef infi* tree;
 
 // Binary Search Tree Functions
