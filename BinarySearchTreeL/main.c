@@ -1,5 +1,6 @@
 #include"bst.h"
 #include<stdio.h>
+#include<limits.h>
 
 // Driver Code
 int main(int argc, char const *argv[])
@@ -36,6 +37,14 @@ int main(int argc, char const *argv[])
     deleteNode(t1,60);
     inOrderI(t1);
     printf("\n");
+
+    // PostOrder Construction
+    int A1[] = {20, 50, 60, 30, 10};
+    int size = sizeof(A1)/sizeof(int);
+    int Index = size - 1;
+    tree t2 = constructFromPostOrder(A1,&Index,A1[Index],INT_MIN,INT_MAX,size);
+    printf("InOrder of Constructed Tree is \n");
+    inOrderI(t2);
     
     return 0;
 }

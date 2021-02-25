@@ -51,3 +51,6 @@ void postOrderI(tree T1);
 
 // Recursive Function to Delete a Node of a BST
 node* deleteNode(tree T1, infi data);
+
+// Recursive Function for Constructing a BST from a Post Order Array
+tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max, int size);

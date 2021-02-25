@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include<limits.h>
 
 #include"treeQueue.h"
 #include"treeStack.h"
@@ -244,7 +245,7 @@ void inOrderI(tree T1)
     }
 }
 
-// Iterative Function for postOrder Traversal using Stack (UnTested)
+// Iterative Function for postOrder Traversal using Stack (REQUIRES DEBUGGING)
 void postOrderI(tree T1)
 {
     // Initialising a Stack
@@ -348,4 +349,41 @@ node* deleteNode(tree T1, infi data)
         T1->right = deleteNode(T1->right, temp->data);
     }
     return T1;
+}
+
+// Recursive Function for Constructing a BST from a PostOrder Array
+tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max, int size)
+{
+    // If Array is Empty
+    if (*Index < 0)
+    {
+        return NULL;
+    }
+
+    node *root = NULL;
+
+    // Creating the root element
+    if (data > min && data < max)
+    {
+        // Allocate memory for root of this subtree and decrement *Index
+        root = (node *)malloc(sizeof(node));
+        root->data = data;
+        root->left = root->right = NULL;
+        *Index = *Index - 1;
+
+        // If array is not empty --> Go To left and right subtress
+        if (*Index >= 0)
+        {
+            // All the nodes greater than root will go to right subtree
+            root->right = constructFromPostOrder(array, Index, array[*Index],
+                                             data, max, size);
+
+            // Construct the subtree under root
+            // All nodes which are in range {min .. key} will go in left
+            // subtree, and first such node will be root of left subtree.
+            root->left = constructFromPostOrder(array, Index, array[*Index],
+                                            min, data, size);
+        }
+    }
+    return root;
 }
