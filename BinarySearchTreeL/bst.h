@@ -73,3 +73,6 @@ int isComplete (tree T1, int index,int nodeCount);
 
 // Recursive function to check whether a BST is full BST or not
 int isFullTree(tree T1);
+
+// Recursive Function for Constructing a BST from a PreOrder Array
+tree constructFromPreOrder(infi array[], int* Index,int data, int min, int max,int size);

@@ -493,14 +493,45 @@ tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max
         if (*Index >= 0)
         {
             // All the nodes greater than root will go to right subtree
-            root->right = constructFromPostOrder(array, Index, array[*Index],
-                                                 data, max, size);
+            root->right = constructFromPostOrder(array, Index, array[*Index],data, max, size);
 
-            // Construct the subtree under root
-            // All nodes which are in range {min .. key} will go in left
-            // subtree, and first such node will be root of left subtree.
-            root->left = constructFromPostOrder(array, Index, array[*Index],
-                                                min, data, size);
+            // All the nodes less than root will go to left subtree
+            root->left = constructFromPostOrder(array, Index, array[*Index],min, data, size);
+        }
+    }
+    return root;
+}
+
+// Recursive Function for Constructing a BST from a PreOrder Array
+tree constructFromPreOrder(infi array[], int* Index,int data, int min, int max,int size)
+{
+    // If Array is Empty --> Return
+    if (*Index >= size)
+    {
+        return NULL;
+    }
+
+    node* root = NULL;
+
+    // Creating the root element
+    if (data > min && data < max) 
+    {
+        // Allocate memory for root of this subtree and increment *Index
+        root = root = (node *)malloc(sizeof(node));
+        root->data = data;
+        root->left = root->right = NULL;
+        *Index += 1;
+
+        // If Array is not empty --> go to left and right subtrees
+        if (*Index < size) 
+        {
+            // All the nodes less than root will go to left subtree
+            root->left = constructFromPreOrder(array, Index,array[*Index],min, data, size);
+        }
+        if (*Index < size) 
+        {
+            // All the nodes greater than root will go to right subtree
+            root->right = constructFromPreOrder(array, Index,array[*Index],data, max, size);
         }
     }
     return root;

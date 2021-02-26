@@ -41,11 +41,24 @@ int main(int argc, char const *argv[])
 
     // PostOrder Construction
     int A1[] = {20, 50, 60, 30, 10};
+    // Size and Index must be initialised
     int size = sizeof(A1)/sizeof(int);
-    int Index = size - 1;
-    tree t2 = constructFromPostOrder(A1,&Index,A1[Index],INT_MIN,INT_MAX,size);
-    printf("InOrder of Constructed Tree is \n");
+    int postIndex = size - 1;
+    tree t2 = constructFromPostOrder(A1,&postIndex,A1[postIndex],INT_MIN,INT_MAX,size);
+
+    printf("InOrder of Constructed PostOrder Tree is \n");
     inOrderI(t2);
+    printf("\n");
+
+    // PreOrder Construction
+    int A2[] = { 10, 5, 1, 7, 40, 50 };
+    // Size and Index must be initialised
+    int presize = sizeof(A1)/sizeof(int);
+    int preIndex = 0;
+    tree t3 = constructFromPreOrder(A2,&preIndex,A2[0],INT_MIN,INT_MAX,presize);
+
+    printf("InOrder of Constructed PreOrder Tree is \n");
+    inOrderI(t3);
     printf("\n");
 
     // Tree Visualisation
