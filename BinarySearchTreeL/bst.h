@@ -54,3 +54,12 @@ node* deleteNode(tree T1, infi data);
 
 // Recursive Function for Constructing a BST from a Post Order Array
 tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max, int size);
+
+// Recursive Function to Count Number of Internal Nodes in a BST
+int internalNodeCount(tree T1);
+
+// Function to print BST in 2 Dimension
+void print2D(tree T1,int space);
+
+// Recursive Function to Calculate number of leaf nodes in a BST
+int leafNodeCount(tree T1);

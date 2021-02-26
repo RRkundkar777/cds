@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<limits.h>
+#include <limits.h>
 
-#include"treeQueue.h"
-#include"treeStack.h"
+#include "treeQueue.h"
+#include "treeStack.h"
 
 // Binary Search Tree ADT (Include Guard to Handle recursive Inclusion)
 #ifndef BST_H
 #define BST_H
-#include"bst.h"
+#include "bst.h"
 #endif
 
 //Debugging Macro
@@ -126,14 +126,14 @@ void insertI(tree *T1, infi data)
 }
 
 // Recursive function to insert a node into BST
-node* insertR(tree T1, infi data)
-{  
+node *insertR(tree T1, infi data)
+{
     if (T1 == NULL)
     {
         // Creating a newnode
-        node* newnode = (node*) malloc(sizeof(node));
+        node *newnode = (node *)malloc(sizeof(node));
         // Handling Malloc Failure
-        if(!newnode)
+        if (!newnode)
         {
             return T1;
         }
@@ -144,13 +144,15 @@ node* insertR(tree T1, infi data)
         T1 = newnode;
         return T1;
     }
- 
+
     // If node data < root data --> Go To the Left subtree
-    if (data < T1->data) {
+    if (data < T1->data)
+    {
         T1->left = insertR(T1->left, data);
     }
     // If node data > root data --> Go To the Right subtree
-    else {
+    else
+    {
         T1->right = insertR(T1->right, data);
     }
     return T1;
@@ -164,26 +166,26 @@ void levelOrder(tree T1)
     initQueue(&nodeQueue);
 
     // Travelling Pointer
-    node* traveller = T1;
+    node *traveller = T1;
 
     // First Enqueue
-    printf("%d ",traveller->data);
-    enqueue(&nodeQueue,traveller);
-    
+    printf("%d ", traveller->data);
+    enqueue(&nodeQueue, traveller);
+
     while (!isEmptyQueue(nodeQueue))
     {
         traveller = dequeue(&nodeQueue);
-        if(traveller->left)
+        if (traveller->left)
         {
             // Printing the Data (Change the format specifier for multiple data types)
-            printf("%d ",traveller->left->data);
-            enqueue(&nodeQueue,traveller->left);
+            printf("%d ", traveller->left->data);
+            enqueue(&nodeQueue, traveller->left);
         }
-        if(traveller->right)
+        if (traveller->right)
         {
             // Printing the Data (Change the format specifier for multiple data types)
-            printf("%d ",traveller->right->data);
-            enqueue(&nodeQueue,traveller->right);
+            printf("%d ", traveller->right->data);
+            enqueue(&nodeQueue, traveller->right);
         }
     }
 }
@@ -195,14 +197,14 @@ void preOrderI(tree T1)
     stack s1;
     initStack(&s1);
     // Travelling Pointer
-    node* traveller = T1;
+    node *traveller = T1;
     // PreOrder Traversal
-    while(!isEmptyStack(s1) || traveller != NULL)
+    while (!isEmptyStack(s1) || traveller != NULL)
     {
-        if(traveller != NULL)
+        if (traveller != NULL)
         {
-            printf("%d ",traveller->data);
-            push(&s1,traveller);
+            printf("%d ", traveller->data);
+            push(&s1, traveller);
             traveller = traveller->left;
         }
         else
@@ -220,21 +222,21 @@ void inOrderI(tree T1)
     stack S1;
     initStack(&S1);
     // Travelling Pointer
-    node* traveller = T1;
+    node *traveller = T1;
     // InOrder Traversal
-    while(!isEmptyStack(S1) || traveller != NULL)
+    while (!isEmptyStack(S1) || traveller != NULL)
     {
-        if(traveller != NULL)
+        if (traveller != NULL)
         {
-            push(&S1,traveller);
+            push(&S1, traveller);
             traveller = traveller->left;
         }
         else
         {
-            if(!isEmptyStack(S1))
+            if (!isEmptyStack(S1))
             {
                 traveller = pop(&S1);
-                printf("%d ",traveller->data);
+                printf("%d ", traveller->data);
                 traveller = traveller->right;
             }
             else
@@ -252,65 +254,65 @@ void postOrderI(tree T1)
     stack S1;
     initStack(&S1);
     // Travelling Pointer
-    node* traveller = T1;
+    node *traveller = T1;
     // If tree is Empty
-    if(!traveller)
+    if (!traveller)
     {
         return;
     }
     // PostOrder Traversal
     do
     {
-        while(traveller)
+        while (traveller)
         {
-            if(traveller->right)
+            if (traveller->right)
             {
-                push(&S1,traveller->right);
+                push(&S1, traveller->right);
             }
-            push(&S1,traveller);
+            push(&S1, traveller);
             traveller = traveller->left;
         }
         traveller = pop(&S1);
-        if(traveller->right && (stackTop(S1) == traveller->right))
+        if (traveller->right && (stackTop(S1) == traveller->right))
         {
             pop(&S1);
-            push(&S1,traveller);
+            push(&S1, traveller);
             traveller = traveller->right;
         }
         else
         {
-            printf("%d ",traveller->data);
+            printf("%d ", traveller->data);
             traveller = NULL;
         }
-    }while(!isEmptyStack(S1));
+    } while (!isEmptyStack(S1));
 }
 
 // Utility Function for Finding the InOrder Successor
-node* inOrderSuccessor(tree T1)
+node *inOrderSuccessor(tree T1)
 {
-    node* current = T1->right;
- 
+    node *current = T1->right;
+
     /*Look for Lowest Element in Right Subtree */
     while (current && current->left != NULL)
         current = current->left;
- 
+
     return current;
 }
 
 // Utility Function for Finding the InOrder Predecessor
-node* inOrderPredecessor(tree T1)
+node *inOrderPredecessor(tree T1)
 {
-    node* current = T1->left;
- 
+    node *current = T1->left;
+
     /*Look for Highest Element in Left Subtree */
     while (current && current->right != NULL)
         current = current->right;
- 
+
     return current;
 }
 
 // Recursive Function to Delete a Node of a BST
-node* deleteNode(tree T1, infi data)
+node *deleteNode(tree T1, infi data)
 {
     // If Tree is Empty --> Return
     if (T1 == NULL)
@@ -324,66 +326,121 @@ node* deleteNode(tree T1, infi data)
     else if (data > T1->data)
         T1->right = deleteNode(T1->right, data);
     // if data is same as T1's data --> Delete this Node
-    else {
+    else
+    {
         // Node with only one child or no child
-        if (T1->left == NULL) 
+        if (T1->left == NULL)
         {
-            node* temp = T1->right;
+            node *temp = T1->right;
             free(T1);
             return temp;
         }
-        else if (T1->right == NULL) 
+        else if (T1->right == NULL)
         {
-            node* temp = T1->left;
+            node *temp = T1->left;
             free(T1);
             return temp;
         }
         // Node with two children --> Get the inorder successor
-        node* temp = inOrderSuccessor(T1);
- 
-        // Copy the inorder 
+        node *temp = inOrderSuccessor(T1);
+
+        // Copy the inorder
         // successor's content to this node
         T1->data = temp->data;
- 
+
         // Delete the inorder successor
         T1->right = deleteNode(T1->right, temp->data);
     }
     return T1;
 }
 
-// Recursive Function for Constructing a BST from a PostOrder Array
-tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max, int size)
+// Recursive Function to Count Number of Internal Nodes in a BST
+int internalNodeCount(tree T1)
 {
-    // If Array is Empty
-    if (*Index < 0)
+    // If root of tree is NULL or it has no children then the root itself is a Leaf Node
+    if (T1 == NULL || (T1->left == NULL && T1->right == NULL))
     {
-        return NULL;
+        return 0;
     }
-
-    node *root = NULL;
-
-    // Creating the root element
-    if (data > min && data < max)
-    {
-        // Allocate memory for root of this subtree and decrement *Index
-        root = (node *)malloc(sizeof(node));
-        root->data = data;
-        root->left = root->right = NULL;
-        *Index = *Index - 1;
-
-        // If array is not empty --> Go To left and right subtress
-        if (*Index >= 0)
-        {
-            // All the nodes greater than root will go to right subtree
-            root->right = constructFromPostOrder(array, Index, array[*Index],
-                                             data, max, size);
-
-            // Construct the subtree under root
-            // All nodes which are in range {min .. key} will go in left
-            // subtree, and first such node will be root of left subtree.
-            root->left = constructFromPostOrder(array, Index, array[*Index],
-                                            min, data, size);
-        }
-    }
-    return root;
+    // Else return sum of internal node counts of left and right subtrees
+    return 1 + internalNodeCount(T1->left) + internalNodeCount(T1->right);
 }
+
+// Recursive Function to Calculate number of leaf nodes in a BST
+int leafNodeCount(tree T1)
+{
+    // If root of tree is null --> return 0
+    if (T1 == NULL)
+    {
+        return 0;
+    }
+    // Else if both children are null --> return 1 (it is a leaf node)
+    else if (T1->left == NULL && T1->right == NULL)
+    {
+            return 1;
+    }
+    // Else goto left and right subtrees
+    else
+    {
+        return leafNodeCount(T1->left) + leafNodeCount(T1->right);
+    }
+}
+
+    // Function to print BST in 2 Dimension
+    void print2D(tree T1, int space)
+    {
+        // If root of tree is NULL --> return
+        if (T1 == NULL)
+        {
+            return;
+        }
+        // Increment the Space and Print the right subtree
+        space += 10;
+        print2D(T1->right, space);
+        printf("\n");
+
+        for (int i = 10; i < space; i++)
+        {
+            printf(" ");
+        }
+
+        printf("%d\n", T1->data);
+        print2D(T1->left, space);
+    }
+
+    // Recursive Function for Constructing a BST from a PostOrder Array
+    tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max, int size)
+    {
+        // If Array is Empty
+        if (*Index < 0)
+        {
+            return NULL;
+        }
+
+        node *root = NULL;
+
+        // Creating the root element
+        if (data > min && data < max)
+        {
+            // Allocate memory for root of this subtree and decrement *Index
+            root = (node *)malloc(sizeof(node));
+            root->data = data;
+            root->left = root->right = NULL;
+            *Index = *Index - 1;
+
+            // If array is not empty --> Go To left and right subtress
+            if (*Index >= 0)
+            {
+                // All the nodes greater than root will go to right subtree
+                root->right = constructFromPostOrder(array, Index, array[*Index],
+                                                     data, max, size);
+
+                // Construct the subtree under root
+                // All nodes which are in range {min .. key} will go in left
+                // subtree, and first such node will be root of left subtree.
+                root->left = constructFromPostOrder(array, Index, array[*Index],
+                                                    min, data, size);
+            }
+        }
+        return root;
+    }

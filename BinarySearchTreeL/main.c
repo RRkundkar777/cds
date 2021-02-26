@@ -35,6 +35,7 @@ int main(int argc, char const *argv[])
     printf("\n\n");
     printf("Deleting element 60\n");
     deleteNode(t1,60);
+    printf("Inorder of T1\n");
     inOrderI(t1);
     printf("\n");
 
@@ -45,6 +46,18 @@ int main(int argc, char const *argv[])
     tree t2 = constructFromPostOrder(A1,&Index,A1[Index],INT_MIN,INT_MAX,size);
     printf("InOrder of Constructed Tree is \n");
     inOrderI(t2);
+    printf("\n");
+
+    // Tree Visualisation
+    printf("Tree Diagram: ");
+    print2D(t1,10);
+
+    // Internal Node Count
+    printf("Internal Node Count %d\n",internalNodeCount(t1));
+
+    // Leaf Node Count
+    printf("Leaf Node Count %d\n",leafNodeCount(t1));
+
     
     return 0;
 }
