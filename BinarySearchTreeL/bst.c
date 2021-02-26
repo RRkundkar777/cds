@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include <limits.h>
 
+//Debugging Macro
+#define debug() printf("Line number is %d\n", __LINE__);
+
+// Boolean Enum
+enum{
+    true = 1,
+    false = 0
+};
+
 #include "treeQueue.h"
 #include "treeStack.h"
 
@@ -10,9 +19,6 @@
 #define BST_H
 #include "bst.h"
 #endif
-
-//Debugging Macro
-#define debug() printf("Line number is %d\n", __LINE__);
 
 // Function to initialise the tree
 void initTree(tree *T1)
@@ -419,6 +425,26 @@ void print2D(tree T1, int space)
     printf("%d\n", T1->data);
     print2D(T1->left, space);
 }
+
+// Recursive function to check whether a BST is a complete BST or not
+// index = 0 and nodeCount = total number of nodes
+int isComplete (tree T1, int index,int nodeCount) 
+{ 
+    // An empty tree is complete tree 
+    if (T1 == NULL)
+    { 
+        return true;
+    } 
+  
+    // If Index >= Number of Nodes --> then tree maybe skewed somewhere
+    if (index >= nodeCount)
+    {
+        return false; 
+    }
+  
+    // Visiting the left and right subtrees
+    return isComplete(T1->left, 2*index + 1, nodeCount) && isComplete(T1->right, 2*index + 2, nodeCount); 
+} 
 
 // Recursive Function for Constructing a BST from a PostOrder Array
 tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max, int size)
