@@ -377,7 +377,7 @@ int leafNodeCount(tree T1)
     // Else if both children are null --> return 1 (it is a leaf node)
     else if (T1->left == NULL && T1->right == NULL)
     {
-            return 1;
+        return 1;
     }
     // Else goto left and right subtrees
     else
@@ -386,61 +386,73 @@ int leafNodeCount(tree T1)
     }
 }
 
-    // Function to print BST in 2 Dimension
-    void print2D(tree T1, int space)
+// Recursive Function to Calculate Total Number of Nodes in BST
+int nodeCount(tree T1) 
+{
+    // If root of tree is null --> return 0
+    if (T1 == NULL)
     {
-        // If root of tree is NULL --> return
-        if (T1 == NULL)
-        {
-            return;
-        }
-        // Increment the Space and Print the right subtree
-        space += 10;
-        print2D(T1->right, space);
-        printf("\n");
+        return 0;
+    }
+     // Else goto left and right subtrees
+    return (1 + nodeCount(T1->left) + nodeCount(T1->right)); 
+} 
 
-        for (int i = 10; i < space; i++)
-        {
-            printf(" ");
-        }
+// Function to print BST in 2 Dimension
+void print2D(tree T1, int space)
+{
+    // If root of tree is NULL --> return
+    if (T1 == NULL)
+    {
+        return;
+    }
+    // Increment the Space and Print the right subtree
+    space += 10;
+    print2D(T1->right, space);
+    printf("\n");
 
-        printf("%d\n", T1->data);
-        print2D(T1->left, space);
+    for (int i = 10; i < space; i++)
+    {
+        printf(" ");
     }
 
-    // Recursive Function for Constructing a BST from a PostOrder Array
-    tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max, int size)
+    printf("%d\n", T1->data);
+    print2D(T1->left, space);
+}
+
+// Recursive Function for Constructing a BST from a PostOrder Array
+tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max, int size)
+{
+    // If Array is Empty
+    if (*Index < 0)
     {
-        // If Array is Empty
-        if (*Index < 0)
-        {
-            return NULL;
-        }
-
-        node *root = NULL;
-
-        // Creating the root element
-        if (data > min && data < max)
-        {
-            // Allocate memory for root of this subtree and decrement *Index
-            root = (node *)malloc(sizeof(node));
-            root->data = data;
-            root->left = root->right = NULL;
-            *Index = *Index - 1;
-
-            // If array is not empty --> Go To left and right subtress
-            if (*Index >= 0)
-            {
-                // All the nodes greater than root will go to right subtree
-                root->right = constructFromPostOrder(array, Index, array[*Index],
-                                                     data, max, size);
-
-                // Construct the subtree under root
-                // All nodes which are in range {min .. key} will go in left
-                // subtree, and first such node will be root of left subtree.
-                root->left = constructFromPostOrder(array, Index, array[*Index],
-                                                    min, data, size);
-            }
-        }
-        return root;
+        return NULL;
     }
+
+    node *root = NULL;
+
+    // Creating the root element
+    if (data > min && data < max)
+    {
+        // Allocate memory for root of this subtree and decrement *Index
+        root = (node *)malloc(sizeof(node));
+        root->data = data;
+        root->left = root->right = NULL;
+        *Index = *Index - 1;
+
+        // If array is not empty --> Go To left and right subtress
+        if (*Index >= 0)
+        {
+            // All the nodes greater than root will go to right subtree
+            root->right = constructFromPostOrder(array, Index, array[*Index],
+                                                 data, max, size);
+
+            // Construct the subtree under root
+            // All nodes which are in range {min .. key} will go in left
+            // subtree, and first such node will be root of left subtree.
+            root->left = constructFromPostOrder(array, Index, array[*Index],
+                                                min, data, size);
+        }
+    }
+    return root;
+}

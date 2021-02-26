@@ -58,6 +58,8 @@ int main(int argc, char const *argv[])
     // Leaf Node Count
     printf("Leaf Node Count %d\n",leafNodeCount(t1));
 
-    
+    // Total Node Count
+    printf("Total Node Count %d\n",nodeCount(t1));
+  
     return 0;
 }

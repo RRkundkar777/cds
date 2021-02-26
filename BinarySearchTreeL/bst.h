@@ -63,3 +63,6 @@ void print2D(tree T1,int space);
 
 // Recursive Function to Calculate number of leaf nodes in a BST
 int leafNodeCount(tree T1);
+
+// Recursive Function to Calculate Total Number of Nodes in BST
+int nodeCount(tree T1);
