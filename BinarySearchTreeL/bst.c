@@ -444,6 +444,29 @@ int isComplete (tree T1, int index,int nodeCount)
   
     // Visiting the left and right subtrees
     return isComplete(T1->left, 2*index + 1, nodeCount) && isComplete(T1->right, 2*index + 2, nodeCount); 
+}
+
+// Recursive function to check whether a BST is full BST or not
+int isFullTree(tree T1) 
+{ 
+    // An empty tree is full BST --> return true
+    if (T1 == NULL)
+    {
+        return true;
+    }
+  
+    // If both left and right nodes are NULL --> return true
+    if (T1->left == NULL && T1->right == NULL) 
+        return true; 
+  
+    // If both left and right nodes are not NULL --> check both left and right subtrees 
+    if ((T1->left) && (T1->right))
+    {
+        return (isFullTree(T1->left) && isFullTree(T1->right));
+    }
+  
+    // If none of the conditions satisfy --> return false 
+    return false; 
 } 
 
 // Recursive Function for Constructing a BST from a PostOrder Array

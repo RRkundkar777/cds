@@ -70,3 +70,6 @@ int nodeCount(tree T1);
 // Recursive function to check whether a BST is a complete BST or not
 // index = 0 and nodeCount = total number of nodes
 int isComplete (tree T1, int index,int nodeCount);
+
+// Recursive function to check whether a BST is full BST or not
+int isFullTree(tree T1);

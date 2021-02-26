@@ -63,6 +63,9 @@ int main(int argc, char const *argv[])
 
     // isComplete
     printf("Binary Tree is Complete: %d\n",isComplete(t1,0,nodeCount(t1)));
+
+    // isFull
+    printf("Binary Tree is Full: %d\n",isFullTree(t1));
   
     return 0;
 }
