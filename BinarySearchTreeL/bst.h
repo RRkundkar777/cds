@@ -79,3 +79,6 @@ tree constructFromPreOrder(infi array[], int* Index,int data, int min, int max,i
 
 // Recursive function to construct binary search tree from Inorder traversal in[] and Preorder traversal pre[].
 tree buildFromPreOrder(infi in[], infi pre[], int inStrt, int inEnd);
+
+// Recursive function to construct binary search tree from Inorder traversal in[] and Postorder traversal post[].
+tree buildFromPostOrder(infi in[], infi post[], int inStrt,int inEnd, int* pIndex);

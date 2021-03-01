@@ -589,3 +589,32 @@ tree buildFromPreOrder(infi in[], infi pre[], int inStrt, int inEnd)
 
     return tNode;
 }
+
+// Recursive function to construct binary search tree from Inorder traversal in[] and Postorder traversal post[].
+tree buildFromPostOrder(infi in[], infi post[], int inStrt,int inEnd, int* pIndex)
+{
+    // If array is empty
+    if (inStrt > inEnd)
+    {
+        return NULL;
+    }
+ 
+    // Pick current node from Postorder traversal using postIndex and decrement postIndex
+    node* newnode = newNode(post[*pIndex]);
+    (*pIndex)--;
+ 
+    // If this node has no children --> return the node
+    if (inStrt == inEnd)
+    {
+        return newnode;
+    }
+ 
+    // Else find the index of this node in Inorder traversal 
+    int iIndex = search(in, inStrt, inEnd, newnode->data);
+ 
+    // Using index in Inorder traversal, construct left and right subtress 
+    newnode->right = buildFromPostOrder(in, post, iIndex + 1, inEnd, pIndex);
+    newnode->left = buildFromPostOrder(in, post, inStrt, iIndex - 1, pIndex);
+ 
+    return newnode;
+}
