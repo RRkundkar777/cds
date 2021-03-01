@@ -6,7 +6,8 @@
 #define debug() printf("Line number is %d\n", __LINE__);
 
 // Boolean Enum
-enum{
+enum
+{
     true = 1,
     false = 0
 };
@@ -393,16 +394,16 @@ int leafNodeCount(tree T1)
 }
 
 // Recursive Function to Calculate Total Number of Nodes in BST
-int nodeCount(tree T1) 
+int nodeCount(tree T1)
 {
     // If root of tree is null --> return 0
     if (T1 == NULL)
     {
         return 0;
     }
-     // Else goto left and right subtrees
-    return (1 + nodeCount(T1->left) + nodeCount(T1->right)); 
-} 
+    // Else goto left and right subtrees
+    return (1 + nodeCount(T1->left) + nodeCount(T1->right));
+}
 
 // Function to print BST in 2 Dimension
 void print2D(tree T1, int space)
@@ -428,46 +429,46 @@ void print2D(tree T1, int space)
 
 // Recursive function to check whether a BST is a complete BST or not
 // index = 0 and nodeCount = total number of nodes
-int isComplete (tree T1, int index,int nodeCount) 
-{ 
-    // An empty tree is complete tree 
+int isComplete(tree T1, int index, int nodeCount)
+{
+    // An empty tree is complete tree
     if (T1 == NULL)
-    { 
+    {
         return true;
-    } 
-  
+    }
+
     // If Index >= Number of Nodes --> then tree maybe skewed somewhere
     if (index >= nodeCount)
     {
-        return false; 
+        return false;
     }
-  
+
     // Visiting the left and right subtrees
-    return isComplete(T1->left, 2*index + 1, nodeCount) && isComplete(T1->right, 2*index + 2, nodeCount); 
+    return isComplete(T1->left, 2 * index + 1, nodeCount) && isComplete(T1->right, 2 * index + 2, nodeCount);
 }
 
 // Recursive function to check whether a BST is full BST or not
-int isFullTree(tree T1) 
-{ 
+int isFullTree(tree T1)
+{
     // An empty tree is full BST --> return true
     if (T1 == NULL)
     {
         return true;
     }
-  
+
     // If both left and right nodes are NULL --> return true
-    if (T1->left == NULL && T1->right == NULL) 
-        return true; 
-  
-    // If both left and right nodes are not NULL --> check both left and right subtrees 
+    if (T1->left == NULL && T1->right == NULL)
+        return true;
+
+    // If both left and right nodes are not NULL --> check both left and right subtrees
     if ((T1->left) && (T1->right))
     {
         return (isFullTree(T1->left) && isFullTree(T1->right));
     }
-  
-    // If none of the conditions satisfy --> return false 
-    return false; 
-} 
+
+    // If none of the conditions satisfy --> return false
+    return false;
+}
 
 // Recursive Function for Constructing a BST from a PostOrder Array
 tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max, int size)
@@ -493,17 +494,17 @@ tree constructFromPostOrder(infi array[], int *Index, int data, int min, int max
         if (*Index >= 0)
         {
             // All the nodes greater than root will go to right subtree
-            root->right = constructFromPostOrder(array, Index, array[*Index],data, max, size);
+            root->right = constructFromPostOrder(array, Index, array[*Index], data, max, size);
 
             // All the nodes less than root will go to left subtree
-            root->left = constructFromPostOrder(array, Index, array[*Index],min, data, size);
+            root->left = constructFromPostOrder(array, Index, array[*Index], min, data, size);
         }
     }
     return root;
 }
 
 // Recursive Function for Constructing a BST from a PreOrder Array
-tree constructFromPreOrder(infi array[], int* Index,int data, int min, int max,int size)
+tree constructFromPreOrder(infi array[], int *Index, int data, int min, int max, int size)
 {
     // If Array is Empty --> Return
     if (*Index >= size)
@@ -511,10 +512,10 @@ tree constructFromPreOrder(infi array[], int* Index,int data, int min, int max,i
         return NULL;
     }
 
-    node* root = NULL;
+    node *root = NULL;
 
     // Creating the root element
-    if (data > min && data < max) 
+    if (data > min && data < max)
     {
         // Allocate memory for root of this subtree and increment *Index
         root = root = (node *)malloc(sizeof(node));
@@ -523,16 +524,68 @@ tree constructFromPreOrder(infi array[], int* Index,int data, int min, int max,i
         *Index += 1;
 
         // If Array is not empty --> go to left and right subtrees
-        if (*Index < size) 
+        if (*Index < size)
         {
             // All the nodes less than root will go to left subtree
-            root->left = constructFromPreOrder(array, Index,array[*Index],min, data, size);
+            root->left = constructFromPreOrder(array, Index, array[*Index], min, data, size);
         }
-        if (*Index < size) 
+        if (*Index < size)
         {
             // All the nodes greater than root will go to right subtree
-            root->right = constructFromPreOrder(array, Index,array[*Index],data, max, size);
+            root->right = constructFromPreOrder(array, Index, array[*Index], data, max, size);
         }
     }
     return root;
+}
+
+// Utility function to search for a given element in Array
+int search(infi arr[], int strt, int end, infi value)
+{
+    int index;
+    for (index = strt; index <= end; index++)
+    {
+        if (arr[index] == value)
+            return index;
+    }
+}
+
+// Utility function to create a newNode
+node *newNode(char data)
+{
+    node *newnode = (node *)malloc(sizeof(node));
+    newnode->data = data;
+    newnode->left = NULL;
+    newnode->right = NULL;
+
+    return (newnode);
+}
+
+// Recursive function to construct binary search tree from Inorder traversal in[] and Preorder traversal pre[].
+tree buildFromPreOrder(infi in[], infi pre[], int inStrt, int inEnd)
+{
+    static int preIndex = 0;
+
+    // If array is empty
+    if (inStrt > inEnd)
+    {
+        return NULL;
+    }
+
+    // Pick current node from Preorder traversal using preIndex and increment preIndex
+    node *tNode = newNode(pre[preIndex++]);
+
+    // If this node has no children then return
+    if (inStrt == inEnd)
+    {
+        return tNode;
+    }
+
+    // Else find the index of this node in Inorder traversal
+    int inIndex = search(in, inStrt, inEnd, tNode->data);
+
+    // Using index in Inorder traversal, construct left and right subtress
+    tNode->left = buildFromPreOrder(in, pre, inStrt, inIndex - 1);
+    tNode->right = buildFromPreOrder(in, pre, inIndex + 1, inEnd);
+
+    return tNode;
 }

@@ -79,6 +79,15 @@ int main(int argc, char const *argv[])
 
     // isFull
     printf("Binary Tree is Full: %d\n",isFullTree(t1));
+
+    // Construction from both inOrder and preOrder
+    infi in[] = { 'D', 'B', 'E', 'A', 'F', 'C' };
+    infi pre[] = { 'A', 'B', 'D', 'E', 'C', 'F' };
+    int len = sizeof(in) / sizeof(in[0]);
+    tree t4 = buildFromPreOrder(in, pre, 0, len - 1);
+    printf("Tree is:\n");
+    print2D(t4,10);
+
   
     return 0;
 }

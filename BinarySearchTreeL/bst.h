@@ -76,3 +76,6 @@ int isFullTree(tree T1);
 
 // Recursive Function for Constructing a BST from a PreOrder Array
 tree constructFromPreOrder(infi array[], int* Index,int data, int min, int max,int size);
+
+// Recursive function to construct binary search tree from Inorder traversal in[] and Preorder traversal pre[].
+tree buildFromPreOrder(infi in[], infi pre[], int inStrt, int inEnd);
