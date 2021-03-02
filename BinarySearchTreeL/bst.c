@@ -75,6 +75,33 @@ void postOrder(tree T1)
     printf("%d ", T1->data);
 }
 
+// Recursive Function to find height of tree
+int treeHeight(tree T1)
+{
+    // If T1 is null depth will not be a whole number, hence -1
+    if(T1 == NULL)
+    {
+        return -1;
+    }
+    // Else go to left and right subtrees and select maximum of them.
+    else
+    {
+        
+        int leftHeight = treeHeight(T1->left);
+        int rightHeight = treeHeight(T1->right);
+ 
+        // The larger one will br Height of tree
+        if(leftHeight > rightHeight)
+        {
+            return (leftHeight + 1);
+        }
+        else
+        {
+            return (rightHeight + 1);
+        }
+    }
+}
+
 // Function to Iteratively insert an element into BST
 void insertI(tree *T1, infi data)
 {
@@ -292,6 +319,27 @@ void postOrderI(tree T1)
             traveller = NULL;
         }
     } while (!isEmptyStack(S1));
+}
+
+// Function to count number of nodes in a level
+int countLevelNodes(tree T1,int level)
+{
+    // If root is null --> tree has no nodes
+    if(T1 == NULL)
+    {
+        return 0;
+    }
+    // The root level has 1 node which is root itself
+    else if(level == 1)
+    {
+        return 1;
+    }
+    // If level > 1 --> go to left and right subtrees and decrement the level
+    else if(level > 1)
+    {
+        return countLevelNodes(T1->left,level - 1) + countLevelNodes(T1->right,level - 1);
+    }
+    
 }
 
 // Utility Function for Finding the InOrder Successor
@@ -617,4 +665,22 @@ tree buildFromPostOrder(infi in[], infi post[], int inStrt,int inEnd, int* pInde
     newnode->left = buildFromPostOrder(in, post, inStrt, iIndex - 1, pIndex);
  
     return newnode;
+}
+
+// Function to find the MaxWidth of a Tree
+int maxWidth(tree T1)
+{
+    // Height of tree = Number of levels in tree - 1
+    int numOfLevels = treeHeight(T1) + 1;
+    // Initially maxWidth is Zero
+    int maxWidth = 0;
+    // Iterate through all levels and update the maxwidth
+    for (int i = 1; i <= numOfLevels; i++)
+    {
+        if(countLevelNodes(T1,i) > maxWidth)
+        {
+            maxWidth = countLevelNodes(T1,i);
+        }
+    }
+    return maxWidth;
 }

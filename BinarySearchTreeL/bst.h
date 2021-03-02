@@ -31,6 +31,9 @@ void preOrder(tree T1);
 // Recursive Function for PostOrder Traversal
 void postOrder(tree T1);
 
+// Recursive Function to find height of tree
+int treeHeight(tree T1);
+
 // Function to Iteratively insert an element into BST
 void insertI(tree *T1, infi data);
 
@@ -48,6 +51,9 @@ void inOrderI(tree T1);
 
 // Iterative Function for postOrder Traversal using Stack
 void postOrderI(tree T1);
+
+// Function to count number of nodes in a level
+int countLevelNodes(tree T1,int level);
 
 // Recursive Function to Delete a Node of a BST
 node* deleteNode(tree T1, infi data);
