@@ -7,14 +7,14 @@ int main(int argc, char const *argv[])
     mHeap m1;
     initMinHeap(&m1, 7);
     insert(&m1, 5);
-    printf("root %d\n", m1.array[0]);
+    printf("root %d\n\n", m1.array[0]);
     insert(&m1, 4);
     printf("root %d\n", m1.array[0]);
-    printf("left %d\n", m1.array[1]);
+    printf("left %d\n\n", m1.array[1]);
     insert(&m1, 3);
     printf("root %d\n", m1.array[0]);
     printf("left %d\n", m1.array[1]);
-    printf("right %d\n", m1.array[2]);
+    printf("right %d\n\n", m1.array[2]);
     printf("\n\n\n");
     decreaseKey(&m1, 1, 2);
 

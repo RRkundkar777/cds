@@ -31,8 +31,14 @@ infi extractMin(mHeap *M1);
 // Function to delete an element at a given index 
 // void deleteKey(mHeap *M1,int index);
 
-// Recursive function to heapify a minHeap 
+// Recursive function to heapify a minHeap (Top Down Approach)
 void MinHeapify(mHeap *M1,int index);
+
+// Recursive Function to Heapify a minHeap (Bottom Up Approach)
+void MinHeapifyR(mHeap *M1, int index);
+
+// Iterative Function to heapify a minHeap
+void MinHeapifyI(mHeap *M1, int index);
 
 // Function to print minHeap in Two Dimensions
 void print2D(mHeap M1, int space,int index);
