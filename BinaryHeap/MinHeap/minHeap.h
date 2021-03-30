@@ -3,7 +3,7 @@
 // Change the typedef for different data types
 typedef int infi;
 
-// Node of an AVL Tree
+// Node of a MinHeap
 typedef struct mHeap
 {
     int size;
