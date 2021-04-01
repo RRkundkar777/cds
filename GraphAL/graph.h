@@ -36,5 +36,3 @@ void addScalarEdge(graphAL *G1,int source,int destination);
 
 // Function to display graph
 void displayGraph(graphAL G1);
-
-void addScalarEdge(graphAL *G1,int src,int destn);
