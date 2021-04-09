@@ -40,3 +40,11 @@ void addScalarEdgeW(graphAL *G1,int source,int destination,INT weight);
 
 // Function to display graph
 void displayGraphW(graphAL G1);
+
+// Function for BFS Traversal
+void BFS(graphAL *G1,int s);
+
+// Recursive function for DFS Traversal
+void DFS(graphAL *G1,int current,int visited[G1->vertex]);
+
+// 
