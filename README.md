@@ -26,5 +26,14 @@ Auxiliary Space is the extra space or temporary space used by an algorithm.
 For Example, swapping of two variables requires an extra 'temp' variable.
 ```
 ```
-Space Complexity of an algorithm is total space taken by the algorithm with respect to the input size. It includes both Auxiliary space and the space used by input. 
+Space Complexity of an algorithm is total space taken by the algorithm with respect to the
+input size. 
+It includes both Auxiliary space and the space used by input. 
 ```
+Space complexity is the study of efficiency of algorithms.
+In present world, having a terrabyte disk space is very common. Therefore space complexity is
+of little significance.
+
+
+## Time Complexity of an algorithm
+
