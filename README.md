@@ -18,3 +18,10 @@ My Repository containing the Data Structures and Algorithms I learnt.
 
 ## Memory Layout of a C program
 <img src="https://open4tech.com/wp-content/uploads/2017/04/Memory_Layout.jpg">
+
+## Space Complexity of an Algorithm
+### Auxiliary Space
+```
+Auxiliary Space is the extra space or temporary space used by an algorithm.
+For Example,  Swapping of two variables requires a 'temp' variable.
+```
