@@ -31,6 +31,7 @@ input size.
 It includes both Auxiliary space and the space used by input. 
 ```
 Space complexity is the study of efficiency of algorithms.
+
 In present world, having a terrabyte disk space is very common. Therefore space complexity is
 of little significance.
 
