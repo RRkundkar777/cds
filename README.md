@@ -41,4 +41,6 @@ Like space complexity, the time complexity is also a study of efficiency of algo
 ```
 Time complexity is the study of growth of execution time of algorithm with respect to
 the size of input.
+As most the algorithms are of the format Input --> Process --> Output, the Time complexity
+measures the time of Process as a function of Input.
 ```
