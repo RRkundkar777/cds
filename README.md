@@ -1,2 +1,4 @@
 # Data Structures and Algorithms
-My repo containing the DS and Algos i learnt.
+My Repository containing the Data Structures and Algorithms I learnt.
+
+
