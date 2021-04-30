@@ -40,3 +40,9 @@ Degree of a node is defined as number of children of that node.
 ```
 The maximum degree of node. 
 ```
+## Forest
+```
+A forest is a collection of trees.
+```
+
+[Binary Tree](./BINARYTREE.md)
