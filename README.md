@@ -81,5 +81,12 @@ So time complexity in the best case would be Θ(1)
 ```
 ### Average Case Complexity
 ```
-In average case analysis, we take all possible inputs and calculate computing time for all of the inputs. Sum all the calculated values and divide the sum by total number of inputs. We must know (or predict) distribution of cases. For the linear search problem, let us assume that all cases are uniformly distributed (including the case of x not being present in array). So we sum all the cases and divide the sum by (n+1). Following is the value of average case time complexity. 
+In average case analysis, we take all possible inputs and calculate computing time for
+all of the inputs, sum all the calculated values and divide the sum by total number of inputs.
+We must know the distribution of cases. 
+For the linear search problem, let us assume that all cases are uniformly distributed
+(i.e. Probablity of all occurence of all cases is equal) including the case of x not 
+being present in array. 
+So we sum all the cases and divide the sum by (n+1). 
+The value of average case time complexity of linear search would be Θ(n).
 ```
