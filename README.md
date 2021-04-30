@@ -17,4 +17,4 @@ My Repository containing the Data Structures and Algorithms I learnt.
 - An algorithm may work faster or slower depending upon the organisation of data in computer.
 
 ## Memory Layout of a C program
-<a href="https://open4tech.com/wp-content/uploads/2017/04/Memory_Layout.jpg">
+<img src="https://open4tech.com/wp-content/uploads/2017/04/Memory_Layout.jpg">
