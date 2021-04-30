@@ -15,5 +15,4 @@ That is, every node in binary tree can have atmost 2 children.
 ### Case1: Nodes are identical
 If the nodes are identical, the number of binary trees that can be formed are:
     <sup>2n</sup>C<sub>n</sub>
-
-![\Large \frac{<sup>2n</sup>C<sub>n</sub>}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a})
+    -------------------------
