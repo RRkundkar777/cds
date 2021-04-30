@@ -17,3 +17,5 @@ If the nodes are identical, the number of binary trees that can be formed are:
     <sup>2n</sup>C<sub>n</sub>
     <hr>
     n+1
+
+![\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}](https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a})
