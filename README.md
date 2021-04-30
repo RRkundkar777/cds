@@ -37,4 +37,8 @@ of little significance.
 
 
 ## Time Complexity of an algorithm
-
+Like space complexity, the time complexity is also a study of efficiency of algorithms.
+```
+Time complexity is the study of growth of execution time of algorithm with respect to
+the size of input.
+```
