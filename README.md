@@ -90,3 +90,9 @@ being present in array.
 So we sum all the cases and divide the sum by (n+1). 
 The value of average case time complexity of linear search would be Θ(n).
 ```
+
+<img src="https://i.stack.imgur.com/ZEmZ6.png">
+
+
+## Implemented Data Structures
+- 
