@@ -74,7 +74,9 @@ the array one by one.Therefore, the worst case time complexity of linear search 
 ```
 In the best case analysis, we calculate lower bound on running time of an algorithm. 
 We must know the case that causes minimum number of operations to be executed. 
-For Example, in the linear search, the best case occurs when element to be searched is present at the first location. The number of operations in the best case is constant (not dependent on n).
+For Example, in the linear search, the best case occurs when element to be searched is 
+present at the first location. 
+The number of operations in the best case is constant (not dependent on n).
 So time complexity in the best case would be Θ(1) 
 ```
 ### Average Case Complexity
