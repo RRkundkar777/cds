@@ -44,3 +44,20 @@ the size of input.
 As most the algorithms are of the format Input --> Process --> Output, the Time complexity
 measures the time of Process as a function of Input.
 ```
+
+## Asymtotic Analysis
+```
+In Asymptotic Analysis, we evaluate the performance of an algorithm in terms of input size .
+We calculate, how the time or space taken by an algorithm increases with the input size.
+```
+
+## Why Asymtotic analysis?
+```
+Comparing two algorithms isnt easy. Because the execution speed of an algorithm does not depend
+only on the input size. It also depends on the processor speed, memory access speed and lots
+of other factors.
+Therefore comparing two algorithms by directly executing them on machine does not provide an
+unambigous information on which algorithm is faster.
+```
+
+## Best, Average and Worst case complexities
