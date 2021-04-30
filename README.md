@@ -23,5 +23,8 @@ My Repository containing the Data Structures and Algorithms I learnt.
 ### Auxiliary Space
 ```
 Auxiliary Space is the extra space or temporary space used by an algorithm.
-For Example,  Swapping of two variables requires a 'temp' variable.
+For Example, swapping of two variables requires an extra 'temp' variable.
+```
+```
+Space Complexity of an algorithm is total space taken by the algorithm with respect to the input size. It includes both Auxiliary space and the space used by input. 
 ```
