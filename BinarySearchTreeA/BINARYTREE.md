@@ -71,10 +71,10 @@ In case of a Full Binary Tree,
     Leaf Nodes = Internal Nodes + 1
 ```
 
-Maximum number of nodes of full binary tree of height H is<code> 2<sup>H + 1</sup> - 1  </code><br>
-Minimum number of nodes of full binary tree of height H is <code>2*H + 1 </code>  <br>
-Minimum height of the full binary tree of with number of nodes as N is <code>⌈ log(N+1) ⌉ - 1  </code><br>
-Maximum height of the full binary tree of with number of nodes as N is <code>(N - 1) / 2 </code> <br>
+Maximum number of nodes of full binary tree of height H is  <code> 2<sup>H + 1</sup> - 1  </code><br>
+Minimum number of nodes of full binary tree of height H is   <code>2*H + 1 </code>  <br>
+Minimum height of the full binary tree of with number of nodes as N is   <code>⌈ log(N+1) ⌉ - 1  </code><br>
+Maximum height of the full binary tree of with number of nodes as N is   <code>(N - 1) / 2 </code> <br>
 
 
 ### Complete Binary Tree
@@ -82,10 +82,10 @@ Also known as Strict / Proper Binary Tree, it follows:
    1. Every level is completely filled except possibly the last level.
    2. The last level has its keys as left as possible.
 
-Maximum number of nodes of complete binary tree of height H is 2<sup>H+1</sup> - 1  <br>
-Minimum number of nodes of complete binary tree of height H is 2<sup>H</sup>  <br>
-Minimum height of complete binary tree of with number of nodes as N is ⌈ log(N+1) ⌉ - 1 <br>
-Maximum height of complete binary tree of with number of nodes as N is log(N) <br>
+Maximum number of nodes of complete binary tree of height H is  <code>2<sup>H+1</sup> - 1 </code> <br>
+Minimum number of nodes of complete binary tree of height H is  <code>2<sup>H</sup> </code> <br>
+Minimum height of complete binary tree of with number of nodes as N is  <code>⌈ log(N+1) ⌉ - 1</code> <br>
+Maximum height of complete binary tree of with number of nodes as N is  <code>log(N) </code><br>
 
 
 ### Perfect Binary Tree
