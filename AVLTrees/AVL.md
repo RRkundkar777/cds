@@ -33,5 +33,4 @@ N<sub>min</sub>(H = 1) = 2
 </code>
 
 For H > 1,
-
    N<sub>min</sub>(H) = N<sub>min</sub>(H - 1) + N<sub>min</sub>(H - 2) + 1
