@@ -98,3 +98,4 @@ The value of average case time complexity of linear search would be Θ(n).
 - [Binary Search Tree using Array](./BinarySearchTreeA/TREE.md)
 - [Binary Search Tree using Linked Nodes](./)
 - [AVL Tree using Linked Nodes](./AVLTrees/AVL.md)
+- [Binary Heap using Array](./BinaryHeap/HEAP.md)
