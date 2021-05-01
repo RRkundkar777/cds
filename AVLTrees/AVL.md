@@ -32,8 +32,13 @@ N<sub>min</sub>(H = 0) = 1
 N<sub>min</sub>(H = 1) = 2
 </code>
 
+
 For H > 1,
 
 <code>
    N<sub>min</sub>(H) = N<sub>min</sub>(H - 1) + N<sub>min</sub>(H - 2) + 1
 </code>
+
+## Range of Height of an AVL Tree
+The height of an AVL Tree varies as,
+    log(N+1) - 1 < H < 1.44 * log(N+2)
