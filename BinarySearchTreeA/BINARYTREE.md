@@ -71,9 +71,12 @@ In case of a Full Binary Tree,
     Leaf Nodes = Internal Nodes + 1
 ```
 <code>
-Maximum number of nodes of full binary tree of height H is 2<sup>H + 1</sup> – 1 <br>
+Maximum number of nodes of full binary tree of height H is 2<sup>H + 1</sup> – 1
+
 Minimum number of nodes of full binary tree of height H is 2*H + 1 <br>
+
 Minimum height of the full binary tree of with number of nodes as N is ⌈ log(N+1) ⌉ - 1 <br>
+
 Maximum height of the full binary tree of with number of nodes as N is (N - 1) / 2 <br>
 </code>
 
