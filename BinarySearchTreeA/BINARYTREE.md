@@ -51,13 +51,14 @@ For given number of nodes N the maximum height of tree is,
 H<sub>max</sub> = n - 1
 
 ## Range of height and number of nodes
-From the above analysis, we can say that,
+From the above analysis, we can say that 
 <code> log<sub>2</sub>(n+1) <= H <= n - 1 </code>
 <code>  H+1 <= N <= 2<sup>(H+1)<sup></code>
 
 ## Relation between Leaf Nodes and Nodes with 2 children
 Let n<sub>2</sub> be nodes with degree 2 and n<sub>0</sub> be nodes with degree 0
 Then
+
 <code>n<sub>0</sub> = n<sub>2</sub> + 1</code>
 
 
