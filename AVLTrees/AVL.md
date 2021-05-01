@@ -27,7 +27,9 @@ N<sub>max</sub> = 2<sup>H + 1</sup> - 1
 <code>
 N<sub>min</sub>(H = 0) = 1
 </code>
+
 <code>
 N<sub>min</sub>(H = 1) = 2
 </code>
+
 N<sub>min</sub>(H) = N<sub>min</sub>(H - 1) + N<sub>min</sub>(H - 2) + 1
