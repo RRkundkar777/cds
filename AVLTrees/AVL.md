@@ -41,4 +41,5 @@ For H > 1,
 
 ## Range of Height of an AVL Tree
 The height of an AVL Tree varies as,
+
     log(N+1) - 1 < H < 1.44 * log(N+2)
