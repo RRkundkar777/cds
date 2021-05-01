@@ -8,4 +8,5 @@ For a Binary Tree to be a BST:
 1. The left subtree of the root must contain all the nodes with keys less than root.
 2. The right subtree of the root must contain all the nodes with keys greater than root.
 3. The left and right subtrees must be a BSTs.
+4. There must be no duplicate nodes
 ```
