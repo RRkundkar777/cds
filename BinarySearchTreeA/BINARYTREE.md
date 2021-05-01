@@ -37,7 +37,7 @@ If the nodes are NOT identical, the number of binary trees that can be formed ar
 Let H be the height of binary tree and N be the number of nodes.
 Then,
 
-
+<code>
 For a given height H the minimum number of nodes is,
 N<sub>min</sub> = H + 1
 
@@ -49,6 +49,7 @@ H<sub>min</sub> = log<sub>2</sub>(n+1) - 1
 
 For given number of nodes N the maximum height of tree is,
 H<sub>max</sub> = n - 1
+</code>
 
 ## Range of height and number of nodes
 From the above analysis, we can say that 
@@ -56,10 +57,48 @@ From the above analysis, we can say that
 
 <code>  H+1 <= N <= 2<sup>(H+1)<sup></code>
 
-## Relation between Leaf Nodes and Nodes with 2 children
+## Relation between Degree 0 and Degree 2 nodes
 Let n<sub>2</sub> be nodes with degree 2 and n<sub>0</sub> be nodes with degree 0
 Then
 
 <code>n<sub>0</sub> = n<sub>2</sub> + 1</code>
+
+## Types of Binary Trees
+
+### Full Binary Tree
+In a full binary tree, every node has either 0 or 2 children.
+```
+In case of a Full Binary Tree, 
+    Leaf Nodes = Internal Nodes + 1
+```
+<code>
+Maximum number of nodes of full binary tree of height H is 2<sup>H + 1</sup> – 1
+Minimum number of nodes of full binary tree of height H is 2*H + 1
+</code>
+
+<code>
+Minimum height of the full binary tree of with number of nodes as N is ⌈ log(N+1) ⌉ - 1
+Maximum height of the full binary tree of with number of nodes as N is (N - 1) / 2
+</code>
+
+### Complete Binary Tree
+Also known as Strict / Proper Binary Tree, it follows: 
+   1. Every level is completely filled except possibly the last level.
+   2. The last level has its keys as left as possible.
+
+<code>
+Maximum number of nodes of complete binary tree of height H is 2<sup>H+1</sup> - 1
+Minimum number of nodes of complete binary tree of height H is 2<sup>H</sup> 
+</code>
+
+<code>
+Minimum height of complete binary tree of with number of nodes as N is ⌈ log(N+1) ⌉ - 1
+Maximum height of complete binary tree of with number of nodes as N is log(N)
+</code>
+
+### Perfect Binary Tree
+A perfect binary tree follows:
+   1. Every node has either 0 or 2 children.
+   2. All the leaf nodes are at same level.
 
 
