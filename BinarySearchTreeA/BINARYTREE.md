@@ -128,4 +128,4 @@ Applications of BFS
     3. GPS
 ```
 
-
+[Binary Search Tree Properties](./BST.md)
