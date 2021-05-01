@@ -74,6 +74,7 @@ In case of a Full Binary Tree,
 <code>
 Maximum number of nodes of full binary tree of height H is 2<sup>H + 1</sup> – 1
 </code>
+
 <code>
 Minimum number of nodes of full binary tree of height H is 2*H + 1
 </code>
@@ -81,6 +82,7 @@ Minimum number of nodes of full binary tree of height H is 2*H + 1
 <code>
 Minimum height of the full binary tree of with number of nodes as N is ⌈ log(N+1) ⌉ - 1
 </code>
+
 <code>
 Maximum height of the full binary tree of with number of nodes as N is (N - 1) / 2
 </code>
