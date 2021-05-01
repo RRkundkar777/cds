@@ -71,10 +71,10 @@ In case of a Full Binary Tree,
     Leaf Nodes = Internal Nodes + 1
 ```
 
-Maximum number of nodes of full binary tree of height H is  <code> 2<sup>H + 1</sup> - 1  </code><br>
-Minimum number of nodes of full binary tree of height H is   <code>2*H + 1 </code>  <br>
-Minimum height of the full binary tree of with number of nodes as N is   <code>⌈ log(N+1) ⌉ - 1  </code><br>
-Maximum height of the full binary tree of with number of nodes as N is   <code>(N - 1) / 2 </code> <br>
+Maximum number of nodes of full binary tree of height H is  <code>2<sup>H + 1</sup> - 1  </code><br>
+Minimum number of nodes of full binary tree of height H is  <code>2*H + 1 </code>  <br>
+Minimum height of the full binary tree of with number of nodes as N is  <code>⌈ log(N+1) ⌉ - 1  </code><br>
+Maximum height of the full binary tree of with number of nodes as N is  <code>(N - 1) / 2 </code> <br>
 
 
 ### Complete Binary Tree
@@ -92,5 +92,40 @@ Maximum height of complete binary tree of with number of nodes as N is  <code>lo
 A perfect binary tree follows:
    1. Every node has either 0 or 2 children.
    2. All the leaf nodes are at same level.
+
+## Tree Traversals
+
+### Depth First Search
+Go to the depth and then traverse the tree.
+
+```
+There are 3 types of DFS viz. InOrder, PreOrder and PostOrder Traversals which we 
+will see in depth.
+```
+
+```
+DFS can be implemented either recursively or iteratively (using stack).
+```
+
+```
+Applications of DFS
+    1. Path Finding
+    2. Finding Priority
+    3. Sorting
+```
+
+### Breadth First Search
+Go To each level and traverse its all nodes, also known as level order traversal.
+
+```
+BFS can be implemented using a Queue Data Structure.
+```
+
+```
+Applications of BFS
+    1. Networks
+    2. Broadcasting
+    3. GPS
+```
 
 
