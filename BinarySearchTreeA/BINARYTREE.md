@@ -53,6 +53,7 @@ H<sub>max</sub> = n - 1
 ## Range of height and number of nodes
 From the above analysis, we can say that 
 <code> log<sub>2</sub>(n+1) <= H <= n - 1 </code>
+
 <code>  H+1 <= N <= 2<sup>(H+1)<sup></code>
 
 ## Relation between Leaf Nodes and Nodes with 2 children
