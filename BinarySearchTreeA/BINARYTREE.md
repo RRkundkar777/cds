@@ -37,7 +37,6 @@ If the nodes are NOT identical, the number of binary trees that can be formed ar
 Let H be the height of binary tree and N be the number of nodes.
 Then,
 
-<code>
 For a given height H the minimum number of nodes is,
 N<sub>min</sub> = H + 1
 
@@ -49,7 +48,7 @@ H<sub>min</sub> = log<sub>2</sub>(n+1) - 1
 
 For given number of nodes N the maximum height of tree is,
 H<sub>max</sub> = n - 1
-</code>
+
 
 ## Range of height and number of nodes
 From the above analysis, we can say that 
