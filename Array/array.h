@@ -1,21 +1,42 @@
-//Array ADT for multiple Data Types
+/*
+Title: Array ADT
+Author: Rushikesh (@RRkundkar777)
+Description: Array as an abstract data type.
+*/
 
-//Change the typedef for accomodating multiple data type
-typedef int infi;
+// Change the typedef for accomodating multiple data type
+typedef int aDat;
 
-//for higher dimensional array
+// Greater Sizes
 typedef long long INT;
 
-// Array ADT 
-typedef struct array{
+// The Array ADT 
+typedef struct array
+{
     INT total_size;
-    INT used_size;
-    infi* start;    
+    aDat* start;    
 }array;
 
-//Array Functions
-void init(array *A1,int tsize); //Initialises the array with total size
-void append(array *A1, infi data); //Inserts an element at end of array
-void display(array A1); //Displays the entire array
-void replace(array *A1,INT position,infi data); //Inserts an element at a specified index by replacing
-void insert(array* A1,INT position,infi data);//Inserts an element at an index by shift-right method
+
+/* Basic Array Operations */
+
+// Function to initialise array with total size and allocating memory
+void initArray(array *A1,INT size);
+
+// Displaying the array as a list
+void displayArray(array A1);
+
+// Inserting an element at end of array
+void append(array *A1, aDat data);
+
+// Replacing an element at a position
+void replace(array *A1, INT position, aDat data);
+
+// Inserting an element at a position by shifting another elements
+void insert(array* A1,INT position,aDat data);
+
+// Function to delete an element from an array by left shifting other elements
+void eliminate(array *A1, INT position);
+
+
+/* Other Algorithms on array */
