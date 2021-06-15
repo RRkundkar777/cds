@@ -10,18 +10,17 @@ typedef int aDat;
 // Greater Sizes
 typedef long long INT;
 
-// The Array ADT 
+// The Array ADT
 typedef struct array
 {
     INT total_size;
-    aDat* start;    
-}array;
-
+    aDat *start;
+} array;
 
 /* Basic Array Operations */
 
 // Function to initialise array with total size and allocating memory
-void initArray(array *A1,INT size);
+void initArray(array *A1, INT size);
 
 // Displaying the array as a list
 void displayArray(array A1);
@@ -33,16 +32,33 @@ void append(array *A1, aDat data);
 void replace(array *A1, INT position, aDat data);
 
 // Inserting an element at a position by shifting another elements
-void insert(array* A1,INT position,aDat data);
+void insert(array *A1, INT position, aDat data);
 
 // Function to delete an element from an array by left shifting other elements
 void eliminate(array *A1, INT position);
 
-
 /* Other Algorithms on array */
 
 // Function for linear search in an array
-int linearSearch(int *array,int size,int query);
+int linearSearch(int *array, int size, int query);
 
 // Improved linear search algorithm that searches from both left and right at a time
-int linearSearchImproved(int *array,int size,int query);
+int linearSearchImproved(int *array, int size, int query);
+
+// Recursive Binary Search Algorithm for a sorted array
+int binarySearchR(int *array, int low, int high, int query);
+
+// Iterative Binary Search Algorithm for a sorted array
+int binarySearchI(int *array, int low, int high, int query);
+
+// Function to implement insertion sort on an array
+void insertionSort(int *array, int size);
+
+// Function to display array as a list
+void displayArray(int *A1, int size);
+
+// Recursive insertion sort algorithm on array
+void insertionSortR(int array[], int size);
+
+// Selection sort algorithm for array
+void selectionSort(int array[], int size);
