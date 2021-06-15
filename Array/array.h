@@ -40,3 +40,9 @@ void eliminate(array *A1, INT position);
 
 
 /* Other Algorithms on array */
+
+// Function for linear search in an array
+int linearSearch(int *array,int size,int query);
+
+// Improved linear search algorithm that searches from both left and right at a time
+int linearSearchImproved(int *array,int size,int query);
