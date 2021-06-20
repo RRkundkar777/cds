@@ -454,3 +454,50 @@ void bubbleSort(int array[], int size)
             break;
     }
 }
+
+// Utility function for implementing quicksort
+// Partitions the array around the pivot, places pivot at its correct position, 
+// elements < pivot at left and elements > pivot at right of it.
+int partition (int array[], int low, int high)
+{
+    // pivot element (Last array element)
+    int pivot = array[high];
+    // Starting index of array of elements < Pivot 
+    int i = (low - 1);
+    
+
+    for (int j = low; j <= high - 1; j++)
+    {
+        // If current element is smaller than the pivot
+        if (array[j] < pivot)
+        {
+            // Swap the element with element at i
+            // (Creates the sub array of elements < pivot)
+            i++;
+            swap(&array[i], &array[j]);
+        }
+    }
+    // Finally, place the pivot element at the end of the sub array
+    swap(&array[i + 1], &array[high]);
+    // Return its index
+    return (i + 1);
+}
+
+// Function to implement quickSort algorithm
+void quickSort(int array[], int low, int high)
+{
+    if (low < high)
+    {
+        // pi is partitioning index, arr[p] is now at right place 
+        int part = partition(array, low, high);
+ 
+        // Separately sort elements before partition and after partition
+        quickSort(array, low, part - 1);
+        quickSort(array, part + 1, high);
+    }
+    else
+    {
+        return;
+    }
+}
+

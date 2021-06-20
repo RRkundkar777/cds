@@ -71,3 +71,6 @@ void mergeSort(int array[], int low, int high);
 
 // Function to implement bubbleSort for an array
 void bubbleSort(int array[], int size);
+
+// Function to implement quickSort for an array
+void quickSort(int array[], int low, int high);
