@@ -60,5 +60,14 @@ void displayArray(int *A1, int size);
 // Recursive insertion sort algorithm on array
 void insertionSortR(int array[], int size);
 
+// Function to sort an array using binary insertion sort
+void binaryInsertionSort(int array[], int size);
+
 // Selection sort algorithm for array
 void selectionSort(int array[], int size);
+
+// Function to implement MergeSort Algorithm for array
+void mergeSort(int array[], int low, int high);
+
+// Function to implement bubbleSort for an array
+void bubbleSort(int array[], int size);

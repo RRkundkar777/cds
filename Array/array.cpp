@@ -125,7 +125,7 @@ void eliminate(array *A1, INT position)
 /* Other Algorithms on array */
 
 // Function for linear search in an array
-int linearSearch(int *array, int size, int query)
+int linearSearch(int array[], int size, int query)
 {
     for (int i = 0; i < size; i++)
     {
@@ -138,7 +138,7 @@ int linearSearch(int *array, int size, int query)
 }
 
 // Improved linear search algorithm that searches from both left and right at a time
-int linearSearchImproved(int *array, int size, int query)
+int linearSearchImproved(int array[], int size, int query)
 {
     int left = 0;
     int right = size - 1;
@@ -162,7 +162,7 @@ int linearSearchImproved(int *array, int size, int query)
 }
 
 // Recursive Binary Search Algorithm for a sorted array
-int binarySearchR(int *array, int low, int high, int query)
+int binarySearchR(int array[], int low, int high, int query)
 {
     if (low <= high)
     {
@@ -185,7 +185,7 @@ int binarySearchR(int *array, int low, int high, int query)
 }
 
 // Iterative Binary Search Algorithm for a sorted array
-int binarySearchI(int *array, int low, int high, int query)
+int binarySearchI(int array[], int low, int high, int query)
 {
     while (low <= high)
     {
@@ -208,7 +208,7 @@ int binarySearchI(int *array, int low, int high, int query)
 }
 
 // Function to display array as a list
-void displayArray(int *A1, int size)
+void displayArray(int A1[], int size)
 {
     printf("[");
     // Printing the array
@@ -226,7 +226,7 @@ void displayArray(int *A1, int size)
 }
 
 // Function to implement insertion sort on an array
-void insertionSort(int *array, int size)
+void insertionSort(int array[], int size)
 {
     // Initialising loop variables and keys
     int i, key, j;
@@ -247,6 +247,54 @@ void insertionSort(int *array, int size)
         // Assign this empty space to current key
         array[j + 1] = key;
     }
+}
+
+// Utility function which searches for position of element in binary insertion sort
+int binarySearchUtil(int array[], int item, int low, int high)
+{
+    // If array has single element return an index accordingly
+    if (high <= low)
+        return (item > array[low]) ? (low + 1) : low;
+
+    int mid = (low + high) / 2;
+
+    // If item is already --> there we insert the element next to it
+    if (item == array[mid])
+        return mid + 1;
+
+    // Else recur through complete array
+    if (item > array[mid])
+        return binarySearchUtil(array, item, mid + 1, high);
+
+    return binarySearchUtil(array, item, low, mid - 1);
+}
+
+// Function to sort an array using binary insertion sort
+void binaryInsertionSort(int array[], int size)
+{
+    int i, j, k, selected;
+
+    // Position of element to be inserted
+    int position;
+
+    for (i = 1; i < size; ++i)
+    {
+        j = i - 1;
+        selected = array[i];
+
+        // Find a location at which selected element should be insertes
+        position = binarySearchUtil(array, selected, 0, j);
+
+        // Move all elements after that position to create space for selected
+        while (j >= position)
+        {
+            array[j + 1] = array[j];
+            j--;
+        }
+        // Insert the selected element
+        array[j + 1] = selected;
+    }
+    return;
 }
 
 // Recursive insertion sort algorithm on array
@@ -292,7 +340,7 @@ void selectionSort(int array[], int size)
     {
         // Initially i is minimum element
         minIndex = i;
-        // Find the minimum element and swap it with current element
+        // Find the minimum element in the sub array and swap it with current element
         for (int j = i + 1; j < size; j++)
         {
             if (array[j] < array[minIndex])
@@ -304,3 +352,105 @@ void selectionSort(int array[], int size)
     }
 }
 
+// Utility merge Procedure for merge sort
+void merge(int array[], int low, int mid, int high)
+{
+    int num1 = mid - low + 1;
+    int num2 = high - mid;
+
+    // Create two sub arrays
+    int Left[num1], Right[num2];
+
+    // Copy data to sub arrays Left[] and Right[]
+    for (int i = 0; i < num1; i++)
+        Left[i] = array[low + i];
+
+    for (int j = 0; j < num2; j++)
+        Right[j] = array[mid + 1 + j];
+
+    // Merge the sub arrays back into main array
+
+    // Initial index of first subarray
+    int i = 0;
+
+    // Initial index of second subarray
+    int j = 0;
+
+    // Initial index of merged subarray
+    int k = low;
+
+    // Merge both sub arrays
+    while (i < num1 && j < num2)
+    {
+        if (Left[i] <= Right[j])
+        {
+            array[k] = Left[i];
+            i++;
+        }
+        else
+        {
+            array[k] = Right[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copy the remaining elements of Left[], if there are any
+    while (i < num1)
+    {
+        array[k] = Left[i];
+        i++;
+        k++;
+    }
+
+    // Copy the remaining elements of Right[], if there are any
+    while (j < num2)
+    {
+        array[k] = Right[j];
+        j++;
+        k++;
+    }
+}
+
+// Function to implement mergeSort for an array
+void mergeSort(int arr[], int low, int high)
+{
+    if (low >= high)
+    {
+        return; //returns recursively
+    }
+    int mid = low + (high - low) / 2;
+    mergeSort(arr, low, mid);
+    mergeSort(arr, mid + 1, high);
+    merge(arr, low, mid, high);
+}
+
+// Function to implement bubbleSort for an array
+void bubbleSort(int array[], int size)
+{
+    int i, j;
+    // Swapped variable to check for any swaps
+    bool swapped;
+
+    // After each iteration of outer for loop,
+    // Maximum element of the array will be at last index.
+    // Hence after each iteration of i, we need to iterate j only till size - i
+    for (i = 0; i < size - 1; i++)
+    {
+        swapped = false;
+        // Last i elements are already in place
+        for (j = 0; j < size - i - 1; j++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                swap(&array[j], &array[j + 1]);
+                swapped = true;
+            }
+        }
+
+        // If no two elements were swapped by inner loop,
+        // then array is already sorted --> break
+        if (!swapped)
+            break;
+    }
+}
