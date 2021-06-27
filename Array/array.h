@@ -74,3 +74,15 @@ void bubbleSort(int array[], int size);
 
 // Function to implement quickSort for an array
 void quickSort(int array[], int low, int high);
+
+// Function to implement count Sort on array
+void countSort(std::vector <int> &arr);
+
+// BucketSort algorithm for float array
+void bucketSort(float array[], int size, int noOfBuckets);
+
+// Function to sort array using Comb Sort (Improved Bubble Sorting)
+void combSort(int array[], int size);
+
+// Function to sort array using shellSort (Understanding Needed)
+int shellSort(int array[], int size);

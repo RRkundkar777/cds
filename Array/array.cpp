@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <bits/stdc++.h>
+#include <vector>
 
 // -- Debugging Macro --
 #define debug() printf("Line number is %d\n", __LINE__);
+
+#define RANGE 255
 
 // Array ADT
 #ifndef ARRAY_H
@@ -456,15 +460,14 @@ void bubbleSort(int array[], int size)
 }
 
 // Utility function for implementing quicksort
-// Partitions the array around the pivot, places pivot at its correct position, 
+// Partitions the array around the pivot, places pivot at its correct position,
 // elements < pivot at left and elements > pivot at right of it.
-int partition (int array[], int low, int high)
+int partition(int array[], int low, int high)
 {
     // pivot element (Last array element)
     int pivot = array[high];
-    // Starting index of array of elements < Pivot 
+    // Starting index of array of elements < Pivot
     int i = (low - 1);
-    
 
     for (int j = low; j <= high - 1; j++)
     {
@@ -488,9 +491,9 @@ void quickSort(int array[], int low, int high)
 {
     if (low < high)
     {
-        // pi is partitioning index, arr[p] is now at right place 
+        // pi is partitioning index, arr[p] is now at right place
         int part = partition(array, low, high);
- 
+
         // Separately sort elements before partition and after partition
         quickSort(array, low, part - 1);
         quickSort(array, part + 1, high);
@@ -501,3 +504,156 @@ void quickSort(int array[], int low, int high)
     }
 }
 
+// To be implemented
+// Bubble Sort (R + I)
+// Insertion Sort (R + I)
+// Selection Sort (R + I)
+// Quick Sort (3 Pivots) (R + I)
+// Merge Sort (R + I)
+// Heap Sort (R + I)
+// Radix Sort (R + I)
+// Bucket Sort (R + I)
+// Counting Sort (R + I)
+// Shell Sort (R + I)
+// Comb Sort (R + I)
+
+// Function to implement count Sort on array
+void countSort(std::vector<int> &arr)
+{
+    // Finding the Range of inputs
+    int max = *max_element(arr.begin(), arr.end());
+    int min = *min_element(arr.begin(), arr.end());
+    int range = max - min + 1;
+
+    // Count and Output Arrays
+    std::vector<int> count(range), output(arr.size());
+
+    // Counting the number of same elements in Array
+    for (int i = 0; i < arr.size(); i++)
+        count[arr[i] - min]++;
+    // Summing the elements of Count Array
+    for (int i = 1; i < count.size(); i++)
+        count[i] += count[i - 1];
+    // Count array contains the positions of elements in sorted array
+    for (int i = arr.size() - 1; i >= 0; i--)
+    {
+        // Creating the output(Sorted Array)
+        output[count[arr[i] - min] - 1] = arr[i];
+        count[arr[i] - min]--;
+    }
+    // Copying the Sorted Array
+    for (int i = 0; i < arr.size(); i++)
+        arr[i] = output[i];
+}
+
+// BucketSort algorithm for float array
+void bucketSort(float array[], int size, int noOfBuckets)
+{
+    int max = INT_MIN, min = INT_MAX;
+    // Finding min and max element of an array.
+    for (int i = 0; i < size; i++)
+    {
+        if (array[i] > max)
+        {
+            max = array[i];
+        }
+        if (array[i] < min)
+        {
+            min = array[i];
+        }
+    }
+
+    // Creating Individual Buckets
+    float range = (max - min) / noOfBuckets;
+    std::vector<float> buckets[noOfBuckets];
+
+    // Scatter the Elements in buckets
+    for (int i = 0; i < size; i++)
+    {
+        int bucketIndex = (array[i] - min) / range;
+        std::cout << bucketIndex;
+        buckets[bucketIndex].push_back(array[i]);
+    }
+    // Sort Individual Buckets
+    for (int i = 0; i < noOfBuckets; i++)
+        sort(buckets[i].begin(), buckets[i].end());
+
+    // Concatenate all buckets into array[]
+    int index = 0;
+    for (int i = 0; i < noOfBuckets; i++)
+        for (int j = 0; j < buckets[i].size(); j++)
+            array[index++] = buckets[i][j];
+
+    return;
+}
+
+// Utility Function To find gap between elements for Comb Sort
+int getNextGap(int gap)
+{
+    // Shrink gap by Shrink factor
+    gap = (gap * 10) / 13;
+
+    if (gap < 1)
+        return 1;
+    return gap;
+}
+
+// Function to sort array using Comb Sort (Improved Bubble Sorting)
+void combSort(int array[], int size)
+{
+    // Initialize gap
+    int gap = size;
+
+    // Initialize swapped as true to make sure that
+    // loop runs
+    bool swapped = true;
+
+    // Keep running while gap is more than 1 and last
+    // iteration caused a swap
+    while (gap != 1 || swapped == true)
+    {
+        // Find next gap
+        gap = getNextGap(gap);
+
+        // Initialize swapped as false so that we can
+        // check if swap happened or not
+        swapped = false;
+
+        // Compare all elements with current gap
+        for (int i = 0; i < size - gap; i++)
+        {
+            if (array[i] > array[i + gap])
+            {
+                swap(&array[i], &array[i + gap]);
+                swapped = true;
+            }
+        }
+    }
+    return;
+}
+
+// Function to sort array using shellSort
+int shellSort(int array[], int size)
+{
+    // Start with a big gap, then reduce the gap
+    for (int gap = size / 2; gap > 0; gap /= 2)
+    {
+        // Do a gapped insertion sort for this gap size.
+        for (int i = gap; i < size; i += 1)
+        {
+            // add a[i] to the elements that have been gap sorted
+            // save a[i] in temp and make a hole at position i
+            int temp = array[i];
+
+            // shift earlier gap-sorted elements up until the correct
+            // location for a[i] is found
+            int j;
+            for (j = i; j >= gap && array[j - gap] > temp; j -= gap)
+                array[j] = array[j - gap];
+
+            // put temp (the original a[i]) in its correct location
+            array[j] = temp;
+        }
+    }
+    return 0;
+}
