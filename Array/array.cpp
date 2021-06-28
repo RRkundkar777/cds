@@ -571,7 +571,10 @@ void bucketSort(float array[], int size, int noOfBuckets)
     for (int i = 0; i < size; i++)
     {
         int bucketIndex = (array[i] - min) / range;
-        std::cout << bucketIndex;
+        while(bucketIndex >= noOfBuckets)
+        {
+            bucketIndex--;
+        }
         buckets[bucketIndex].push_back(array[i]);
     }
     // Sort Individual Buckets

@@ -78,7 +78,7 @@ void quickSort(int array[], int low, int high);
 // Function to implement count Sort on array
 void countSort(std::vector <int> &arr);
 
-// BucketSort algorithm for float array (Does SegFault)
+// BucketSort algorithm for float array
 void bucketSort(float array[], int size, int noOfBuckets);
 
 // Function to sort array using Comb Sort (Improved Bubble Sorting)
