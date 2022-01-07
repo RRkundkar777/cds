@@ -63,13 +63,13 @@ gnu_boot()
 }
 
 # remove the .o files
-remove_dumps()
+remove_all_dumps()
 {
     rm -r ./tmp
 }
 
 # remove the app
-remove_app()
+remove_ubd()
 {
     rm ubd
 }
@@ -91,8 +91,8 @@ main()
             gbuild
             gnu_boot
 
-            remove_dumps
-            remove_app
+            remove_all_dumps
+            remove_ubd
         fi
 }
 
