@@ -1,0 +1,14 @@
+#ifndef CLASS_H
+#define CLASS_H
+#include"class.h"
+#endif
+
+#ifndef ALGO_H
+#define ALGO_H
+#include"algorithms.h"
+#endif
+
+#ifndef OPER_H
+#define OPER_H
+#include"operations.h"
+#endif
