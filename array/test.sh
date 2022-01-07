@@ -1,5 +1,4 @@
 # Script to build code files of array data structure
-
 #! /bin/bash
 
 # Make the tmp folder
@@ -35,13 +34,13 @@ run()
 }
 
 # Remove object files
-removeDumps()
+remove_dumps()
 {
     rm -r ./tmp
 }
 
 # Remove the app
-removeApp()
+remove_app()
 {
     rm app
 }
@@ -49,10 +48,14 @@ removeApp()
 # Driver Code
 main()
 {
-    tmp
-    compile
-    build
-    removeDumps
+    # If bash script is not being sourced --> execute this
+    if [[ "${BASH_SOURCE[0]}" == "${0}" ]]
+    then 
+        tmp
+        compile
+        build
+        remove_dumps
+    fi
 }
 
 # Execute !
