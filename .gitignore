@@ -1,5 +1,10 @@
 .vscode
+
 plan.md
 to-be-coded.md
 thescrapheap
-oldmain.cpp
+
+tmp
+*.o
+app
+ubd
