@@ -1,5 +1,10 @@
-#include "array.h"
+/* Code to test the array data structure */
+
+// System Libraries
 #include <iostream>
+
+// Array data structure
+#include "array.h"
 
 int main()
 {
