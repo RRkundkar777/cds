@@ -1,7 +1,12 @@
-// Global Main for testing all DSAs concurrently
+/* Testing all data structures concurrently */
 
+// System Libraries
 #include<iostream>
 
+// Configuration
+#include"aes-config.h"
+
+// Data Structures
 #include "aa-sample-dsa/sample.h"
 #include "array/array.h"
 

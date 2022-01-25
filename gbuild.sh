@@ -19,7 +19,7 @@ register()
 }
 
 # compile code files from a single dsa folder
-clangcompile()
+ind_compile()
 {
     DSA_DIRNAME=$1
     for file in $DSA_DIRNAME/*.cpp
@@ -30,11 +30,11 @@ clangcompile()
 }
 
 # Compile code files from all registered dsa folders
-gnu_compile()
+compile_all()
 {
     for location in ${DSA_REG[@]}
     do
-        clangcompile $location
+        ind_compile $location
     done
 }
 
@@ -57,7 +57,7 @@ gbuild()
 }
 
 # run the final app
-gnu_boot()
+gboot()
 {
     ./ubd
 }
@@ -77,23 +77,29 @@ remove_ubd()
 # Driver Code
 main()
 {
+        # If script is not sourced --> do this
         if [[ "${BASH_SOURCE[0]}" == "${0}" ]]
-        then 
+        then
+            # create tmp folder 
             import
             tmp
-    
+
+            # register DSAs and compile all 
             register
-            gnu_compile
-    
+            compile_all
+
+            # compile global main, remove local main 
             compile_main
             remove_local_main
-    
-            gbuild
-            gnu_boot
 
+            # build and run the final app 
+            gbuild
+            gboot
+
+            # remove the tmp folder
             remove_all_dumps
-            remove_ubd
         fi
 }
 
+# Execute!
 main
