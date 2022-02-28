@@ -9,11 +9,4 @@
 // Array ADT
 #include "array.h"
 
-// Constructor of array
-array::array(lint size)
-{
-    this->start = new lint[size];
-    this->size = size;    
-}
-
 #endif
