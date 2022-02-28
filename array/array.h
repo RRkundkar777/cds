@@ -10,10 +10,7 @@
 class array
 {
 public:
-    lint *start;
-    lint size;
-public:
-    array(lint);
+    lint linearSearch(lint array[], lint arraySize, lint element);
     void mergeSort();
 };
 #endif
