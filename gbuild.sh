@@ -14,6 +14,7 @@ import()
 # register "to be compiled" dsa folders
 register()
 {
+    echo "Registering DSAs"
     DSA_REG[0]="./aa-sample-dsa"
     DSA_REG[1]="./array"
 }
@@ -32,6 +33,7 @@ ind_compile()
 # Compile code files from all registered dsa folders
 compile_all()
 {
+    echo "Compilation in Progress...."
     for location in ${DSA_REG[@]}
     do
         ind_compile $location
@@ -41,6 +43,7 @@ compile_all()
 # Compile global_main file
 compile_main()
 {
+    echo "Building Objects"
     g++ -c global_main.cpp -o ./tmp/global_main.cpp.o
 }
 
@@ -53,24 +56,28 @@ remove_local_main()
 # build the final app
 gbuild()
 {
+    echo "Building App"
     g++ ./tmp/*.o -o ubd
 }
 
 # run the final app
 gboot()
 {
+    echo "------Running Universal Build of Data------"
     ./ubd
 }
 
 # remove the .o files
 remove_all_dumps()
 {
+    echo "Removing all dumps......"
     rm -r ./tmp
 }
 
 # remove the app
 remove_ubd()
 {
+    echo "Removing executable"
     rm ubd
 }
 
@@ -97,7 +104,7 @@ main()
             gboot
 
             # remove the tmp folder
-            remove_all_dumps
+            # remove_all_dumps
         fi
 }
 
