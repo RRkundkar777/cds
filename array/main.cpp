@@ -8,6 +8,7 @@
 
 int main()
 {
-    array a1(56);
+    long long py = 4;
+    array a1;
     a1.mergeSort();
 }
