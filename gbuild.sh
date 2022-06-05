@@ -4,46 +4,50 @@
 # Data Structure Registry
 declare -a DSA_REG
 
-# Importing useful functions
-import()
+# Create a temporary folder
+mk_tmp()
 {
-    array_dir="./array/test.sh"
-    source $array_dir
+    if [ -d "./tmp" ]; 
+    then
+        :
+    else
+        mkdir tmp
+    fi
 }
 
 # register "to be compiled" dsa folders
-register()
+register_dsa_dirs()
 {
-    echo "Registering DSAs"
-    DSA_REG[0]="./aa-sample-dsa"
-    DSA_REG[1]="./array"
+    echo "Registering DSAs....."
+    DSA_REG[0]="./array"
 }
 
 # compile code files from a single dsa folder
-ind_compile()
+compile_dir()
 {
     DSA_DIRNAME=$1
     for file in $DSA_DIRNAME/*.cpp
     do
         filename=`echo "$file" | awk -F'/' '{print $3}'`
         g++ -c $file -o ./tmp/$filename.o
+        echo "Compiling $file"
     done
 }
 
 # Compile code files from all registered dsa folders
-compile_all()
+compile()
 {
     echo "Compilation in Progress...."
     for location in ${DSA_REG[@]}
     do
-        ind_compile $location
+        compile_dir $location
     done
 }
 
 # Compile global_main file
-compile_main()
+build_main()
 {
-    echo "Building Objects"
+    echo "Building Main Object....."
     g++ -c global_main.cpp -o ./tmp/global_main.cpp.o
 }
 
@@ -54,59 +58,63 @@ remove_local_main()
 }
 
 # build the final app
-gbuild()
+build_app()
 {
-    echo "Building App"
+    echo "Building Application 'ubd'"
     g++ ./tmp/*.o -o ubd
 }
 
 # run the final app
-gboot()
+boot_app()
 {
-    echo "------Running Universal Build of Data------"
+    echo -e "Testing all Data Integrity....\n"
     ./ubd
 }
 
 # remove the .o files
-remove_all_dumps()
+remove_dumps()
 {
     echo "Removing all dumps......"
     rm -r ./tmp
 }
 
 # remove the app
-remove_ubd()
+remove_app()
 {
-    echo "Removing executable"
+    echo "Removing executable...."
     rm ubd
 }
 
 # Driver Code
 main()
 {
+    ARGS=$1
         # If script is not sourced --> do this
         if [[ "${BASH_SOURCE[0]}" == "${0}" ]]
         then
-            # create tmp folder 
-            import
-            tmp
+            if [[ $ARGS == "-r" ]]
+            then
+                # remove the tmp folder
+                remove_dumps
+                remove_app
+            else
+                # create tmp folder 
+                mk_tmp
 
-            # register DSAs and compile all 
-            register
-            compile_all
+                # register DSAs and compile all 
+                register_dsa_dirs
+                compile
 
-            # compile global main, remove local main 
-            compile_main
-            remove_local_main
+                # compile global main, remove local main 
+                build_main
+                remove_local_main
 
-            # build and run the final app 
-            gbuild
-            gboot
-
-            # remove the tmp folder
-            # remove_all_dumps
+                # build and run the final app 
+                build_app
+                boot_app
+            fi
         fi
 }
 
 # Execute!
-main
+main $1
