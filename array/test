@@ -54,7 +54,9 @@ main()
         tmp
         compile
         build
+        run
         remove_dumps
+        remove_app
     fi
 }
 

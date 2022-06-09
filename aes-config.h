@@ -4,5 +4,6 @@
 #define AES_CONFIG_H
 
 #define lint long long int
+using namespace std;
 
 #endif
