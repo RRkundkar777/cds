@@ -19,7 +19,8 @@ mk_tmp()
 register_dsa_dirs()
 {
     echo "Registering DSAs....."
-    DSA_REG[0]="./array"
+    DSA_REG[0]="./1_array"
+    DSA_REG[1]="./2_singly_linked_list"
 }
 
 # compile code files from a single dsa folder
