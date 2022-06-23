@@ -24,6 +24,8 @@ register_dsa_dirs()
     DSA_REG[2]="./3_a_stack"
     DSA_REG[3]="./4_l_stack"
     DSA_REG[4]="./5_circular_linked_list"
+    DSA_REG[5]="./6_a_min_heap"
+    DSA_REG[6]="./7_a_max_heap"
 }
 
 # compile code files from a single dsa folder

@@ -12,6 +12,8 @@
 #include "3_a_stack/a_stack.h"
 #include "4_l_stack/l_stack.h"
 #include "5_circular_linked_list/cl_list.h"
+#include "6_a_min_heap/a_min_heap.h"
+#include "7_a_max_heap/a_max_heap.h"
 
 int main(int argc, char const *argv[])
 {
@@ -105,5 +107,49 @@ int main(int argc, char const *argv[])
     cls.reverse();
     cls.traverse();
     cls.reverse();
+
+
+
+
+    a_min_heap h1(9);
+    h1.insert(1);
+    h1.insert(2);
+    h1.insert(3);
+    h1.insert(4);
+    h1.insert(5);
+    h1.insert(5);
+    h1.insert(5);
+    h1.insert(0);
+    h1.display();
+    h1.decrease_key(7, -3);
+    cout << endl;
+    h1.display();
+    cout << endl;
+
+
+
+
+    a_max_heap h3(8);
+    h3.insert(1);
+    h3.insert(2);
+    h3.insert(3);
+    h3.insert(4);
+    h3.insert(5);
+    h3.insert(6);
+    h3.insert(7);
+    h3.insert(0);
+    h3.insert(119);
+    h3.display();
+    cout << endl;
+    h3.increase_key(5, 9);
+    h3.display();
+    cout << endl;
+    h3.extract_max();
+    h3.display();
+    cout << endl;
+    h3.delete_key(2);
+    h3.display();
+    cout << endl;
+    
     return 0;
 }
