@@ -20,4 +20,13 @@ int main()
     b.dfs_traverse(0);
     b.dfs_traverse(1);
     b.dfs_traverse(2);
+
+    cout << "Number of unlabelled trees with 5 nodes is " << b.catalan(4) << endl;
+
+    b.bfs_traverse();
+    b.insert(8);
+    b.insert(9);
+    b.bfs_traverse();
+    b.remove(3);
+    b.bfs_traverse();
 }

@@ -14,11 +14,12 @@
 #include <queue>
 
 // Class declaration
-class bt_node {
-  public:
+class bt_node
+{
+public:
     int data;
-    bt_node* left;
-    bt_node* right;
+    bt_node *left;
+    bt_node *right;
 
     bt_node(int val)
     {
@@ -38,6 +39,10 @@ public:
     binary_tree(int val);
     void bfs_traverse();
     void dfs_traverse(int route);
+    long catalan(int num);
+    void insert(int value);
+    void remove(int value);
+    void trim(bt_node *d_node);
 
 private:
     void preorder(bt_node *root);
