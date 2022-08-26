@@ -29,4 +29,21 @@ int main()
     b.bfs_traverse();
     b.remove(3);
     b.bfs_traverse();
+
+
+    binary_tree b2(3);
+    b2.insert(2);
+    b2.insert(4);
+    b2.insert(1);
+    b2.insert(3);
+    b2.insert(5);
+    b2.bfs_traverse();
+
+    cout << "Is b2 continous? " << b2.isContinous() << endl;
+
+    b2.insert(6);
+
+    cout << "Is b2 foldable? " << b2.isFoldable() << endl;
+
+    
 }

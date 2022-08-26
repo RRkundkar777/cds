@@ -43,6 +43,10 @@ public:
     void insert(int value);
     void remove(int value);
     void trim(bt_node *d_node);
+    bool isContinous();
+    static bool isContinousUtil(bt_node *root);
+    bool isFoldable();
+    static bool isFoldableUtil(bt_node *node1, bt_node *node2);
 
 private:
     void preorder(bt_node *root);
