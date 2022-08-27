@@ -45,5 +45,17 @@ int main()
 
     cout << "Is b2 foldable? " << b2.isFoldable() << endl;
 
+    binary_tree symm(1);
+    symm.insert(2);
+    symm.insert(2);
+    symm.insert(3);
+    symm.insert(4);
+    symm.insert(4);
+    symm.insert(3);
+
+    cout << "Is symm symmetrical? " << symm.isSymmetric() << endl;
+    symm.insert(8);
+    cout << "Is symm still symmetrical? " << symm.isSymmetric() << endl;
+
     
 }

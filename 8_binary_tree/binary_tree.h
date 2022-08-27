@@ -47,6 +47,8 @@ public:
     static bool isContinousUtil(bt_node *root);
     bool isFoldable();
     static bool isFoldableUtil(bt_node *node1, bt_node *node2);
+    bool isSymmetric();
+    static bool isMirrorUtil(bt_node *r1, bt_node *r2);
 
 private:
     void preorder(bt_node *root);

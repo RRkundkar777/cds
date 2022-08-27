@@ -78,4 +78,22 @@ bool binary_tree::isFoldableUtil(bt_node *node1, bt_node *node2)
     return isFoldableUtil(node1->right, node2->left) and isFoldableUtil(node1->left, node2->right);
 }
 
+// utility function to check if subtrees are mirror
+bool binary_tree::isMirrorUtil(bt_node *r1, bt_node *r2)
+{
+    if (r1 == NULL and r2 == NULL)
+        return true;
+
+    if (r1 and r2 and (r1->data == r2->data))
+        return isMirrorUtil(r1->left, r2->right) and isMirrorUtil(r1->right, r2->left);
+
+    return false;
+}
+
+// check if tree symmetric
+bool binary_tree::isSymmetric()
+{
+    return isMirrorUtil(this->root, this->root);
+}
+
 #endif
